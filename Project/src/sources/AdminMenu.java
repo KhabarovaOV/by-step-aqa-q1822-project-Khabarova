@@ -429,7 +429,7 @@ public class AdminMenu extends CreatedCollection {
     private List writeFile() {
         BufferedWriter bufferedWriter = null;
         try {
-            bufferedWriter = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + "\\src\\sources\\resources\\DataBase.txt"));
+            bufferedWriter = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + "\\Project\\src\\sources\\resources\\DataBase.txt"));
             for (String str1 : readBase
             ) {
                 bufferedWriter.write(str1);

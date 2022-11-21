@@ -8,7 +8,7 @@ public class CreatedCollection {
     public List readFile() {
         String line;
         try {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(System.getProperty("user.dir") + "\\src\\sources\\resources\\DataBase.txt"));
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(System.getProperty("user.dir") + "\\Project\\src\\sources\\resources\\DataBase.txt"));
             while ((line = bufferedReader.readLine()) != null) {
                 readBase.add(line);
             }
