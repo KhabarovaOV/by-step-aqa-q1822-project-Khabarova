@@ -182,7 +182,7 @@ public class AdminMenu extends CreatedCollection {
         readBase.remove(l);
         writeFile();
         sortingCategoriesAfterDeletion();
-        }catch (IndexOutOfBoundsException e){
+        }catch (IndexOutOfBoundsException | InputMismatchException ex){
             System.out.println("Вы ввели неверное число");
             deleteCategories();
         }
@@ -248,7 +248,7 @@ public class AdminMenu extends CreatedCollection {
         String m = readBase.get(l);
         System.out.println(m);
         variousOfDoInPodMenu();
-        }catch (IndexOutOfBoundsException e){
+        }catch (IndexOutOfBoundsException | InputMismatchException ex){
             System.out.println("Вы ввели неверное число");
             watchedOneCategories();
         }
@@ -279,7 +279,7 @@ public class AdminMenu extends CreatedCollection {
             }
             System.out.println(x);
             variousOfDoInPodMenu();
-        }catch (IndexOutOfBoundsException e){
+        }catch (IndexOutOfBoundsException | InputMismatchException ex){
             System.out.println("Вы ввели неверное число");
             summaInOneCategories();
         }
@@ -316,7 +316,7 @@ public class AdminMenu extends CreatedCollection {
         readBase.set(l, newLineInList);
         writeFile();
         variousOfDoInPodMenu();
-    }catch (IndexOutOfBoundsException e){
+    }catch (IndexOutOfBoundsException | InputMismatchException ex){
             System.out.println("Вы ввели неверное число");
             addNewExpenseInOneCategories();
         }
@@ -348,7 +348,7 @@ public class AdminMenu extends CreatedCollection {
             readBase.set(l, newLineInList);
             writeFile();
             variousOfDoInPodMenu();
-        }catch (IndexOutOfBoundsException e){
+        }catch (IndexOutOfBoundsException | InputMismatchException ex){
             System.out.println("Вы ввели неверное число");
             deleteLastAddedExpenseInOneCategories();
         }
@@ -384,7 +384,7 @@ public class AdminMenu extends CreatedCollection {
             readBase.set(l, newLineInList);
             writeFile();
             variousOfDoInPodMenu();
-        }catch (IndexOutOfBoundsException e){
+        }catch (IndexOutOfBoundsException | InputMismatchException ex){
             System.out.println("Вы ввели неверное число");
             deleteTheSelectedExpense();
         }
@@ -419,7 +419,7 @@ public class AdminMenu extends CreatedCollection {
             readBase.set(l, newLineInList);
             writeFile();
             variousOfDoInPodMenu();
-        }catch (IndexOutOfBoundsException e){
+        }catch (IndexOutOfBoundsException | InputMismatchException ex){
             System.out.println("Вы ввели неверное число");
             changeSpecificExpense();
         }

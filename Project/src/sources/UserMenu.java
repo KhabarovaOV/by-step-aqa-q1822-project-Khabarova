@@ -2,6 +2,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -162,7 +163,7 @@ public class UserMenu extends CreatedCollection {
             String m = readBase.get(l);
             System.out.println(m);
             variousOfDoInPodMenu();
-        } catch (IndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException | InputMismatchException ex) {
             System.out.println("Вы ввели неверное число.");
             watchedOneCategories();
         }
@@ -226,7 +227,7 @@ public class UserMenu extends CreatedCollection {
             readBase.set(l, newLineInList);
             writeFile();
             variousOfDoInPodMenu();
-        } catch (IndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException | InputMismatchException ex) {
             System.out.println("Вы ввели неверное число.");
             addNewExpenseInOneCategories();
         }
@@ -256,7 +257,7 @@ public class UserMenu extends CreatedCollection {
         readBase.set(l, newLineInList);
         writeFile();
         variousOfDoInPodMenu();
-        }catch (IndexOutOfBoundsException e){
+        }catch (IndexOutOfBoundsException | InputMismatchException ex){
             System.out.println("Вы ввели неверное число");
             deleteLastAddedExpenseInOneCategories();
         }
