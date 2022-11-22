@@ -182,25 +182,27 @@ public class AdminMenu extends CreatedCollection {
         readBase.remove(l);
         writeFile();
         sortingCategoriesAfterDeletion();
-        }catch (IndexOutOfBoundsException | InputMismatchException ex){
+        }catch (IndexOutOfBoundsException e){
             System.out.println("Вы ввели неверное число");
             deleteCategories();
         }
         return readBase;
     }
 
-    private List<String> categorySearch(){
+    private List<String> categorySearch() {
         System.out.println("Введите имя категории, которую хотите найти с большой буквы: ");
         Scanner scan = new Scanner(System.in);
         String search = scan.nextLine();
-        int i = 0;
-        for (String str: readBase) {
-            if (str.contains(search)){
+        int y = 0;
+        for (String str : readBase) {
+            if (str.contains(search)) {
                 System.out.println(str);
-            }else if(i == 0) {
-                System.out.println("Категория не найдена.");
+            } else {
+                y++;
+                if (y == readBase.size()) {
+                    System.out.println("Категория не найдена.");
+                }
             }
-            i++;
         }
         return readBase;
     }
@@ -248,7 +250,7 @@ public class AdminMenu extends CreatedCollection {
         String m = readBase.get(l);
         System.out.println(m);
         variousOfDoInPodMenu();
-        }catch (IndexOutOfBoundsException | InputMismatchException ex){
+        }catch (IndexOutOfBoundsException e){
             System.out.println("Вы ввели неверное число");
             watchedOneCategories();
         }
@@ -279,45 +281,51 @@ public class AdminMenu extends CreatedCollection {
             }
             System.out.println(x);
             variousOfDoInPodMenu();
-        }catch (IndexOutOfBoundsException | InputMismatchException ex){
+        }catch (IndexOutOfBoundsException e){
             System.out.println("Вы ввели неверное число");
             summaInOneCategories();
         }
     }
 
     private List<String> addNewExpenseInOneCategories() {
-        try{
         choosingToViewListOfCategories();
         System.out.println("Введите номер категории которую хотите выбрать: ");
         int l = getNumberOfVarious();
-        String s = readBase.get(l);
-        System.out.println(s);
-        String[] arr = s.split(",");
-        String[] arr2 = new String[arr.length + 1];
-        int index = 0;
-        for (int i = 0; i < arr2.length; i++) {
-            try {
-                arr2[index] = arr[i];
-                index++;
-            } catch (NumberFormatException | ArrayIndexOutOfBoundsException es) {
+        try {
+            String s = readBase.get(l);
+            System.out.println(s);
+            String[] arr = s.split(",");
+            String[] arr2 = new String[arr.length + 1];
+            int index = 0;
+            for (int i = 0; i < arr2.length; i++) {
+                try {
+                    arr2[index] = arr[i];
+                    index++;
+                } catch (NumberFormatException | ArrayIndexOutOfBoundsException es) {
+                }
             }
-        }
-        System.out.println("Ведите новый расход в данной категории: ");
-        Scanner sc = new Scanner(System.in);
-        String newExpense = sc.nextLine();
-        arr2[arr2.length - 1] = newExpense;
-        String newLineInList = "";
-        for (int k = 0; k < arr2.length; k++) {
-            newLineInList += arr2[k];
-            if (k != arr2.length - 1) {
-                newLineInList += ",";
+            System.out.println("Ведите новый расход в данной категории: ");
+            Scanner sc = new Scanner(System.in);
+            String newExpense = sc.nextLine();
+            try{
+                Double.parseDouble(newExpense);
+            }catch (NumberFormatException e){
+                System.out.println("Вы ввели не число, повторите ввод.");
+                sc.nextLine();
             }
-        }
-        readBase.set(l, newLineInList);
-        writeFile();
-        variousOfDoInPodMenu();
-    }catch (IndexOutOfBoundsException | InputMismatchException ex){
-            System.out.println("Вы ввели неверное число");
+            arr2[arr2.length - 1] = newExpense;
+            String newLineInList = "";
+            for (int k = 0; k < arr2.length; k++) {
+                newLineInList += arr2[k];
+                if (k != arr2.length - 1) {
+                    newLineInList += ",";
+                }
+            }
+            readBase.set(l, newLineInList);
+            writeFile();
+            variousOfDoInPodMenu();
+        } catch (IndexOutOfBoundsException  e) {
+            System.out.println("Вы ввели неверное число.");
             addNewExpenseInOneCategories();
         }
         return readBase;
@@ -348,7 +356,7 @@ public class AdminMenu extends CreatedCollection {
             readBase.set(l, newLineInList);
             writeFile();
             variousOfDoInPodMenu();
-        }catch (IndexOutOfBoundsException | InputMismatchException ex){
+        }catch (IndexOutOfBoundsException e){
             System.out.println("Вы ввели неверное число");
             deleteLastAddedExpenseInOneCategories();
         }
@@ -384,7 +392,7 @@ public class AdminMenu extends CreatedCollection {
             readBase.set(l, newLineInList);
             writeFile();
             variousOfDoInPodMenu();
-        }catch (IndexOutOfBoundsException | InputMismatchException ex){
+        }catch (IndexOutOfBoundsException e){
             System.out.println("Вы ввели неверное число");
             deleteTheSelectedExpense();
         }
@@ -419,7 +427,7 @@ public class AdminMenu extends CreatedCollection {
             readBase.set(l, newLineInList);
             writeFile();
             variousOfDoInPodMenu();
-        }catch (IndexOutOfBoundsException | InputMismatchException ex){
+        }catch (IndexOutOfBoundsException e){
             System.out.println("Вы ввели неверное число");
             changeSpecificExpense();
         }
@@ -429,7 +437,7 @@ public class AdminMenu extends CreatedCollection {
     private List writeFile() {
         BufferedWriter bufferedWriter = null;
         try {
-            bufferedWriter = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + "\\Project\\src\\sources\\resources\\DataBase.txt"));
+            bufferedWriter = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + "\\src\\sources\\resources\\DataBase.txt"));
             for (String str1 : readBase
             ) {
                 bufferedWriter.write(str1);
