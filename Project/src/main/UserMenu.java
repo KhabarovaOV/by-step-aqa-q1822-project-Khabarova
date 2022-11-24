@@ -1,6 +1,4 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -275,12 +273,15 @@ public class UserMenu extends CreatedCollection {
     private List writeFile() {
         BufferedWriter bufferedWriter = null;
         try {
-            bufferedWriter = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + "\\src\\sources\\resources\\DataBase.txt"));
+            try {
+                bufferedWriter = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + "\\src\\sources\\resources\\DataBase.txt"));
+            } catch (FileNotFoundException e) {
+                bufferedWriter = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + "\\Project\\src\\sources\\resources\\DataBase.txt"));
+            }
             for (String str1 : readBase
             ) {
                 bufferedWriter.write(str1);
-                bufferedWriter.newLine();
-            }
+                bufferedWriter.newLine();}
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
