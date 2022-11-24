@@ -1,16 +1,12 @@
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.*;
 
 
 public class AdminMenu extends CreatedCollection {
     private boolean end = true;
-    CreatedCollection createdCollection = new CreatedCollection();
-    List<String> readBase = createdCollection.readFile();
-    HashMap<Integer, String> NumberOfVarious = new HashMap<>();
-    HashMap<Integer, String> NumberOfVariousPodMenu = new HashMap<>();
+    private CreatedCollection createdCollection = new CreatedCollection();
+    private List<String> readBase = createdCollection.readFile();
+    private HashMap<Integer, String> NumberOfVarious = new HashMap<>();
+    private HashMap<Integer, String> NumberOfVariousPodMenu = new HashMap<>();
 
     private void createdMenu() {
         System.out.println("Выберете пункт из меню: ");
@@ -170,7 +166,7 @@ public class AdminMenu extends CreatedCollection {
         Scanner text = new Scanner(System.in);
         String newCategories = text.nextLine();
         readBase.add(newCategories);
-        writeFile();
+        createdCollection.writeFile();
         return readBase;
     }
 
@@ -181,7 +177,7 @@ public class AdminMenu extends CreatedCollection {
             Scanner num = new Scanner(System.in);
             int l = num.nextInt();
             readBase.remove(l);
-            writeFile();
+            createdCollection.writeFile();
             sortingCategoriesAfterDeletion();
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Вы ввели неверное число");
@@ -224,7 +220,7 @@ public class AdminMenu extends CreatedCollection {
             x = "";
         }
         System.out.println(x);
-        writeFile();
+        createdCollection.writeFile();
     }
 
     private void choosingToViewListOfCategories() {
@@ -324,7 +320,7 @@ public class AdminMenu extends CreatedCollection {
                 }
             }
             readBase.set(l, newLineInList);
-            writeFile();
+            createdCollection.writeFile();
             variousOfDoInPodMenu();
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Вы ввели неверное число.");
@@ -356,7 +352,7 @@ public class AdminMenu extends CreatedCollection {
                 }
             }
             readBase.set(l, newLineInList);
-            writeFile();
+            createdCollection.writeFile();
             variousOfDoInPodMenu();
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Вы ввели неверное число");
@@ -392,7 +388,7 @@ public class AdminMenu extends CreatedCollection {
                 }
             }
             readBase.set(l, newLineInList);
-            writeFile();
+            createdCollection.writeFile();
             variousOfDoInPodMenu();
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Вы ввели неверное число");
@@ -428,36 +424,11 @@ public class AdminMenu extends CreatedCollection {
                 }
             }
             readBase.set(l, newLineInList);
-            writeFile();
+            createdCollection.writeFile();
             variousOfDoInPodMenu();
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Вы ввели неверное число");
             changeSpecificExpense();
-        }
-        return readBase;
-    }
-
-    private List writeFile() {
-        BufferedWriter bufferedWriter = null;
-        try {
-            try {
-                bufferedWriter = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + "\\src\\sources\\resources\\DataBase.txt"));
-            } catch (FileNotFoundException e) {
-                bufferedWriter = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + "\\Project\\src\\sources\\resources\\DataBase.txt"));
-            }
-            for (String str1 : readBase
-            ) {
-                bufferedWriter.write(str1);
-                bufferedWriter.newLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                bufferedWriter.flush();
-            } catch (IOException e) {
-                System.out.println(e);
-            }
         }
         return readBase;
     }

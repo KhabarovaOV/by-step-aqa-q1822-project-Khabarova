@@ -1,16 +1,14 @@
-import java.io.*;
 import java.util.HashMap;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class UserMenu extends CreatedCollection {
 
     private boolean exid = true;
-    CreatedCollection createdCollection = new CreatedCollection();
-    List<String> readBase = createdCollection.readFile();
-    HashMap<Integer, String> NumberOfVarious = new HashMap<>();
-    HashMap<Integer, String> NumberOfVariousPodMenu = new HashMap<>();
+    private CreatedCollection createdCollection = new CreatedCollection();
+    private List<String> readBase = createdCollection.readFile();
+    private HashMap<Integer, String> NumberOfVarious = new HashMap<>();
+    private HashMap<Integer, String> NumberOfVariousPodMenu = new HashMap<>();
 
     private void createdMenu() {
         System.out.println("Выберете пункт из меню: ");
@@ -231,7 +229,7 @@ public class UserMenu extends CreatedCollection {
                 }
             }
             readBase.set(l, newLineInList);
-            writeFile();
+            createdCollection.writeFile();
             variousOfDoInPodMenu();
         } catch (IndexOutOfBoundsException  e) {
             System.out.println("Вы ввели неверное число.");
@@ -261,35 +259,11 @@ public class UserMenu extends CreatedCollection {
                 }
             }
             readBase.set(l, newLineInList);
-            writeFile();
+            createdCollection.writeFile();
             variousOfDoInPodMenu();
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Вы ввели неверное число");
             deleteLastAddedExpenseInOneCategories();
-        }
-        return readBase;
-    }
-
-    private List writeFile() {
-        BufferedWriter bufferedWriter = null;
-        try {
-            try {
-                bufferedWriter = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + "\\src\\sources\\resources\\DataBase.txt"));
-            } catch (FileNotFoundException e) {
-                bufferedWriter = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + "\\Project\\src\\sources\\resources\\DataBase.txt"));
-            }
-            for (String str1 : readBase
-            ) {
-                bufferedWriter.write(str1);
-                bufferedWriter.newLine();}
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                bufferedWriter.flush();
-            } catch (IOException e) {
-                System.out.println(e);
-            }
         }
         return readBase;
     }
