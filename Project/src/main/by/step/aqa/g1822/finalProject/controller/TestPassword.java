@@ -1,3 +1,5 @@
+package by.step.aqa.g1822.finalProject.controller;
+
 import java.util.Scanner;
 
 public class TestPassword implements Menu {

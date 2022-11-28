@@ -1,7 +1,11 @@
+package by.step.aqa.g1822.finalProject.controller;
+
+import by.step.aqa.g1822.finalProject.dao.CreatedCollection;
+
 import java.util.*;
 
 
-public class AdminMenu extends CreatedCollection {
+public class AdminMenu  {
     private boolean end = true;
     private CreatedCollection createdCollection = new CreatedCollection();
     private List<String> readBase = createdCollection.readFile();
@@ -128,7 +132,7 @@ public class AdminMenu extends CreatedCollection {
     }
 
     private void watchedAllList() {
-        readFile();
+        createdCollection.readFile();
         for (String str : readBase) {
             System.out.println(str);
         }
