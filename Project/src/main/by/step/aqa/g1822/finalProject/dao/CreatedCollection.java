@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CreatedCollection {
-
     List<String> readBase = new ArrayList<>();
 
     public List readFile() {
@@ -54,5 +53,4 @@ public class CreatedCollection {
         }
         return readBase;
     }
-
 }

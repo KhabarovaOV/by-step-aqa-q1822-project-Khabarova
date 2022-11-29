@@ -1,9 +1,11 @@
 package by.step.aqa.g1822.finalProject.service.menuForAdmin;
+
 import java.util.HashMap;
 
 public class ListForMenuForAdmin {
-     private HashMap<Integer, String> NumberOfVarious = new HashMap<>();
-     private void createdMenu() {
+    private HashMap<Integer, String> NumberOfVarious = new HashMap<>();
+
+    private void createdMenu() {
         System.out.println("Выберете пункт из меню: ");
         NumberOfVarious.put(1, " Посмотреть список всех категорий");
         NumberOfVarious.put(2, " Посмотреть все расходы");
@@ -16,7 +18,7 @@ public class ListForMenuForAdmin {
         System.out.println(NumberOfVarious);
     }
 
-    public void getCreatedMenu(){
-         createdMenu();
+    public void getCreatedMenu() {
+        createdMenu();
     }
 }

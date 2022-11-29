@@ -6,11 +6,11 @@ import by.step.aqa.g1822.finalProject.service.methodsForMenu.watch.MethodsWatch;
 import java.util.List;
 
 public class MethodForSumm {
-    CreatedCollection createdCollection = new CreatedCollection();
-    List<String> readBase = createdCollection.readFile();
     private MethodsWatch methodsWatch = new MethodsWatch();
 
     private double summaInAllCategories() {
+        CreatedCollection createdCollection = new CreatedCollection();
+        List<String> readBase = createdCollection.readFile();
         methodsWatch.getChoosingToViewListOfCategories();
         double x = 0;
         for (int i = 0; i < readBase.size(); i++) {
@@ -35,7 +35,7 @@ public class MethodForSumm {
         return x;
     }
 
-    public void getSummaInAllCategories(){
+    public void getSummaInAllCategories() {
         summaInAllCategories();
     }
 }

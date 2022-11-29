@@ -1,4 +1,5 @@
 package by.step.aqa.g1822.finalProject.service.menuForAdmin;
+
 import by.step.aqa.g1822.finalProject.service.ScannerForNumberAndWord;
 import by.step.aqa.g1822.finalProject.service.menuForAdmin.podMenuForAdmin.MenuForPodAdmin;
 import by.step.aqa.g1822.finalProject.service.methodsForMenu.addedCategory.MethodForAddedCategory;
@@ -20,38 +21,38 @@ public class MenuForAdmin {
     private boolean end = true;
 
     private void variousOfDoInMenu() {
-        try{
-        MenuForPodAdmin menuForPodAdmin = new MenuForPodAdmin();
-        listForMenuForAdmin.getCreatedMenu();
-        int number = scanner.getNumberOfVarious();
-        switch (number) {
-            case 1:
-                methodsWatch.getWatchedCategoriesList();
-                break;
-            case 2:
-                methodsWatch.getWatchedAllList();
-                break;
-            case 3:
-                methodForSumm.getSummaInAllCategories();
-                break;
-            case 4:
-                menuForPodAdmin.getVariousOfDoInPodMenu();
-                break;
-            case 5:
-                methodForAddedCategory.getAddedNewCategory();
-                break;
-            case 6:
-                methodDeleteCategory.getDeleteCategories();
-                break;
-            case 7:
-                methodCategorySearch.getCategorySearch();
-                break;
-            case 8:
-                System.out.println("Программа завершена!");
-                System.exit(0);
-                end = false;
-        }
-        }catch (InputMismatchException e){
+        try {
+            MenuForPodAdmin menuForPodAdmin = new MenuForPodAdmin();
+            listForMenuForAdmin.getCreatedMenu();
+            int number = scanner.getNumberOfVarious();
+            switch (number) {
+                case 1:
+                    methodsWatch.getWatchedCategoriesList();
+                    break;
+                case 2:
+                    methodsWatch.getWatchedAllList();
+                    break;
+                case 3:
+                    methodForSumm.getSummaInAllCategories();
+                    break;
+                case 4:
+                    menuForPodAdmin.cycleForPodMenu();
+                    break;
+                case 5:
+                    methodForAddedCategory.getAddedNewCategory();
+                    break;
+                case 6:
+                    methodDeleteCategory.getDeleteCategories();
+                    break;
+                case 7:
+                    methodCategorySearch.getCategorySearch();
+                    break;
+                case 8:
+                    System.out.println("Программа завершена!");
+                    System.exit(0);
+                    end = false;
+            }
+        } catch (InputMismatchException e) {
             variousOfDoInMenu();
         }
     }
@@ -63,7 +64,7 @@ public class MenuForAdmin {
         } while (menuForAdmin.end);
     }
 
-    public void getVariousOfDoInMenu(){
+    public void getVariousOfDoInMenu() {
         variousOfDoInMenu();
     }
 }

@@ -1,9 +1,10 @@
 package by.step.aqa.g1822.finalProject.service.menuForAdmin.podMenuForAdmin;
-import java.util.HashMap;
 
+import java.util.HashMap;
 
 public class ListForPodMenuForAdmin {
     private HashMap<Integer, String> NumberOfVariousPodMenu = new HashMap<>();
+
     private void createdPodMenu() {
         System.out.println("Выберете пункт из подменю: ");
         NumberOfVariousPodMenu.put(1, " Посмотреть список всех категорий");
@@ -16,7 +17,8 @@ public class ListForPodMenuForAdmin {
         NumberOfVariousPodMenu.put(8, " Выход из подменю в главное меню");
         System.out.println(NumberOfVariousPodMenu);
     }
-    public void getCreatedPodMenu(){
+
+    public void getCreatedPodMenu() {
         createdPodMenu();
     }
 }

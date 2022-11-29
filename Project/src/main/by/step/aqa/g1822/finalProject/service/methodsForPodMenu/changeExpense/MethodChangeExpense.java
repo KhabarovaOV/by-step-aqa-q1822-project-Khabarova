@@ -1,4 +1,4 @@
-package by.step.aqa.g1822.finalProject.service.menuForAdmin.podMenuForAdmin.methodsForPodMenu.changeExpense;
+package by.step.aqa.g1822.finalProject.service.methodsForPodMenu.changeExpense;
 
 import by.step.aqa.g1822.finalProject.dao.CreatedCollection;
 import by.step.aqa.g1822.finalProject.service.ScannerForNumberAndWord;
@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MethodChangeExpense {
-    CreatedCollection createdCollection = new CreatedCollection();
-    List<String> readBase = createdCollection.readFile();
     private MethodsWatch methodsWatch = new MethodsWatch();
     private ScannerForNumberAndWord scanner = new ScannerForNumberAndWord();
+
     private List<String> changeSpecificExpense() {
-        MenuForPodAdmin menuForPodAdmin = new MenuForPodAdmin();
+        CreatedCollection createdCollection = new CreatedCollection();
+        List<String> readBase = createdCollection.readFile();
         try {
             methodsWatch.getChoosingToViewListOfCategories();
             System.out.println("Введите номер категории в которой, хотите изменить рассход: ");
@@ -38,7 +38,6 @@ public class MethodChangeExpense {
             }
             readBase.set(l, newLineInList);
             createdCollection.writeFile();
-            menuForPodAdmin.getVariousOfDoInPodMenu();
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Вы ввели неверное число");
             changeSpecificExpense();
@@ -46,7 +45,7 @@ public class MethodChangeExpense {
         return readBase;
     }
 
-    public void getChangeSpecificExpense(){
+    public void getChangeSpecificExpense() {
         changeSpecificExpense();
     }
 }

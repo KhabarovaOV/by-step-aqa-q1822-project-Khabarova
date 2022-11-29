@@ -1,8 +1,6 @@
 package by.step.aqa.g1822.finalProject.controller;
-
 import by.step.aqa.g1822.finalProject.service.menuForAdmin.MenuForAdmin;
 import by.step.aqa.g1822.finalProject.service.menuForUser.MenuForUser;
-
 import java.util.Scanner;
 
 public class TestPassword implements Menu {

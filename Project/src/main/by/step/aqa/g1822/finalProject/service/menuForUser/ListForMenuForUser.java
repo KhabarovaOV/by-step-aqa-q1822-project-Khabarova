@@ -15,7 +15,7 @@ public class ListForMenuForUser {
         System.out.println(NumberOfVarious);
     }
 
-    public void getCreatedMenu(){
+    public void getCreatedMenu() {
         createdMenu();
     }
 }

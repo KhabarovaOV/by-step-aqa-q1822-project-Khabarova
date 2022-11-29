@@ -14,31 +14,30 @@ public class MenuForUser {
     MethodsWatch methodsWatch = new MethodsWatch();
     MethodCategorySearch methodCategorySearch = new MethodCategorySearch();
 
-
     private void variousOfDoInMenu() {
-        try{
-        MenuForPodMenuForUser menuForPodMenuForUser = new MenuForPodMenuForUser();
-        listForMenuForUser.getCreatedMenu();
-        int number = scanner.getNumberOfVarious();
-        switch (number) {
-            case 1:
-                methodsWatch.getWatchedCategoriesList();
-                break;
-            case 2:
-                methodsWatch.getWatchedAllList();
-                break;
-            case 3:
-                methodCategorySearch.getCategorySearch();
-                break;
-            case 4:
-                menuForPodMenuForUser.getVariousOfDoInPodMenu();
-                break;
-            case 5:
-                System.out.println("Программа завершена!");
-                System.exit(0);
-                exid = false;
-        }
-        }catch (InputMismatchException e){
+        try {
+            MenuForPodMenuForUser menuForPodMenuForUser = new MenuForPodMenuForUser();
+            listForMenuForUser.getCreatedMenu();
+            int number = scanner.getNumberOfVarious();
+            switch (number) {
+                case 1:
+                    methodsWatch.getWatchedCategoriesList();
+                    break;
+                case 2:
+                    methodsWatch.getWatchedAllList();
+                    break;
+                case 3:
+                    methodCategorySearch.getCategorySearch();
+                    break;
+                case 4:
+                    menuForPodMenuForUser.cycleForPodMenu();
+                    break;
+                case 5:
+                    System.out.println("Программа завершена!");
+                    System.exit(0);
+                    exid = false;
+            }
+        } catch (InputMismatchException e) {
             variousOfDoInMenu();
         }
     }
@@ -50,7 +49,7 @@ public class MenuForUser {
         } while (menuForUser.exid);
     }
 
-    public void getVariousOfDoInMenu(){
+    public void getVariousOfDoInMenu() {
         variousOfDoInMenu();
     }
 

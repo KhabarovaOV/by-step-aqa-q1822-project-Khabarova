@@ -1,21 +1,20 @@
-package by.step.aqa.g1822.finalProject.service.menuForUser.podMenuForUser.methodsForPodMenu.summ;
+package by.step.aqa.g1822.finalProject.service.methodsForPodMenu.summ;
 
 import by.step.aqa.g1822.finalProject.dao.CreatedCollection;
 import by.step.aqa.g1822.finalProject.service.ScannerForNumberAndWord;
 import by.step.aqa.g1822.finalProject.service.menuForAdmin.podMenuForAdmin.MenuForPodAdmin;
-import by.step.aqa.g1822.finalProject.service.menuForUser.podMenuForUser.MenuForPodMenuForUser;
 import by.step.aqa.g1822.finalProject.service.methodsForMenu.watch.MethodsWatch;
 
 import java.util.List;
 
 public class MethodSummForPodMenu {
 
-    CreatedCollection createdCollection = new CreatedCollection();
-    List<String> readBase = createdCollection.readFile();
-    MethodsWatch methodsWatch = new MethodsWatch();
-    ScannerForNumberAndWord scanner = new ScannerForNumberAndWord();
+    private MethodsWatch methodsWatch = new MethodsWatch();
+    private ScannerForNumberAndWord scanner = new ScannerForNumberAndWord();
+
     private void summaInOneCategories() {
-        MenuForPodMenuForUser menuForPodMenuForUser = new MenuForPodMenuForUser();
+        CreatedCollection createdCollection = new CreatedCollection();
+        List<String> readBase = createdCollection.readFile();
         try {
             methodsWatch.getChoosingToViewListOfCategories();
             System.out.println("Введите номер категории которую хотите выбрать: ");
@@ -39,14 +38,13 @@ public class MethodSummForPodMenu {
                 x += arr3[j];
             }
             System.out.println(x);
-            menuForPodMenuForUser.getVariousOfDoInPodMenu();
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Вы ввели неверное число");
             summaInOneCategories();
         }
     }
 
-    public void getSummaInOneCategories(){
+    public void getSummaInOneCategories() {
         summaInOneCategories();
     }
 }

@@ -1,4 +1,4 @@
-package by.step.aqa.g1822.finalProject.service.menuForAdmin.podMenuForAdmin.methodsForPodMenu.deleteExpense;
+package by.step.aqa.g1822.finalProject.service.methodsForPodMenu.deleteExpense;
 
 import by.step.aqa.g1822.finalProject.dao.CreatedCollection;
 import by.step.aqa.g1822.finalProject.service.ScannerForNumberAndWord;
@@ -9,13 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MethodsDeleteExpense {
-    CreatedCollection createdCollection = new CreatedCollection();
-    List<String> readBase = createdCollection.readFile();
     private MethodsWatch methodsWatch = new MethodsWatch();
     private ScannerForNumberAndWord scanner = new ScannerForNumberAndWord();
 
     private List<String> deleteLastAddedExpenseInOneCategories() {
-        MenuForPodAdmin menuForPodAdmin = new MenuForPodAdmin();
+        CreatedCollection createdCollection = new CreatedCollection();
+        List<String> readBase = createdCollection.readFile();
         try {
             methodsWatch.getChoosingToViewListOfCategories();
             System.out.println("Введите номер категории которую хотите выбрать: ");
@@ -38,7 +37,6 @@ public class MethodsDeleteExpense {
             }
             readBase.set(l, newLineInList);
             createdCollection.writeFile();
-            menuForPodAdmin.getVariousOfDoInPodMenu();
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Вы ввели неверное число");
             deleteLastAddedExpenseInOneCategories();
@@ -47,7 +45,8 @@ public class MethodsDeleteExpense {
     }
 
     private List<String> deleteTheSelectedExpense() {
-        MenuForPodAdmin menuForPodAdmin = new MenuForPodAdmin();
+        CreatedCollection createdCollection = new CreatedCollection();
+        List<String> readBase = createdCollection.readFile();
         try {
             methodsWatch.getChoosingToViewListOfCategories();
             System.out.println("Введите номер категории в которой, хотите удалить рассход: ");
@@ -75,7 +74,6 @@ public class MethodsDeleteExpense {
             }
             readBase.set(l, newLineInList);
             createdCollection.writeFile();
-            menuForPodAdmin.getVariousOfDoInPodMenu();
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Вы ввели неверное число");
             deleteTheSelectedExpense();
@@ -83,11 +81,11 @@ public class MethodsDeleteExpense {
         return readBase;
     }
 
-    public void getDeleteLastAddedExpenseInOneCategories(){
+    public void getDeleteLastAddedExpenseInOneCategories() {
         deleteLastAddedExpenseInOneCategories();
     }
 
-    public void getDeleteTheSelectedExpense(){
+    public void getDeleteTheSelectedExpense() {
         deleteTheSelectedExpense();
     }
 

@@ -8,13 +8,17 @@ public class ScannerForNumberAndWord {
         return scanner.nextInt();
     }
 
-    private String scanTwo(){
+    private String scanTwo() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
+
     public int getNumberOfVarious() {
         return scan();
     }
-    public String getWord(){return scanTwo();}
+
+    public String getWord() {
+        return scanTwo();
+    }
 }
 

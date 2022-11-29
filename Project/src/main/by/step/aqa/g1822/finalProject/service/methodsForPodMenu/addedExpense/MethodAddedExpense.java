@@ -1,4 +1,4 @@
-package by.step.aqa.g1822.finalProject.service.menuForAdmin.podMenuForAdmin.methodsForPodMenu.addedExpense;
+package by.step.aqa.g1822.finalProject.service.methodsForPodMenu.addedExpense;
 
 import by.step.aqa.g1822.finalProject.dao.CreatedCollection;
 import by.step.aqa.g1822.finalProject.service.ScannerForNumberAndWord;
@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MethodAddedExpense {
-    CreatedCollection createdCollection = new CreatedCollection();
-    List<String> readBase = createdCollection.readFile();
     private MethodsWatch methodsWatch = new MethodsWatch();
     private ScannerForNumberAndWord scanner = new ScannerForNumberAndWord();
+
     private List<String> addNewExpenseInOneCategories() {
-        MenuForPodAdmin menuForPodAdmin = new MenuForPodAdmin();
+        CreatedCollection createdCollection = new CreatedCollection();
+        List<String> readBase = createdCollection.readFile();
         methodsWatch.getChoosingToViewListOfCategories();
         System.out.println("Введите номер категории которую хотите выбрать: ");
         int l = scanner.getNumberOfVarious();
@@ -50,7 +50,6 @@ public class MethodAddedExpense {
             }
             readBase.set(l, newLineInList);
             createdCollection.writeFile();
-            menuForPodAdmin.getVariousOfDoInPodMenu();
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Вы ввели неверное число.");
             addNewExpenseInOneCategories();
@@ -58,7 +57,7 @@ public class MethodAddedExpense {
         return readBase;
     }
 
-    public void getAddNewExpenseInOneCategories(){
+    public void getAddNewExpenseInOneCategories() {
         addNewExpenseInOneCategories();
     }
 }

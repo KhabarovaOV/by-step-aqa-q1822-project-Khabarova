@@ -2,15 +2,16 @@ package by.step.aqa.g1822.finalProject.service.menuForAdmin.podMenuForAdmin;
 
 import by.step.aqa.g1822.finalProject.service.ScannerForNumberAndWord;
 import by.step.aqa.g1822.finalProject.service.menuForAdmin.MenuForAdmin;
-import by.step.aqa.g1822.finalProject.service.menuForAdmin.podMenuForAdmin.methodsForPodMenu.addedExpense.MethodAddedExpense;
-import by.step.aqa.g1822.finalProject.service.menuForAdmin.podMenuForAdmin.methodsForPodMenu.changeExpense.MethodChangeExpense;
-import by.step.aqa.g1822.finalProject.service.menuForAdmin.podMenuForAdmin.methodsForPodMenu.deleteExpense.MethodsDeleteExpense;
-import by.step.aqa.g1822.finalProject.service.menuForAdmin.podMenuForAdmin.methodsForPodMenu.summ.MethodSummForPodMenu;
-import by.step.aqa.g1822.finalProject.service.menuForAdmin.podMenuForAdmin.methodsForPodMenu.watch.MethodsWatchForPodMenu;
+import by.step.aqa.g1822.finalProject.service.methodsForPodMenu.addedExpense.MethodAddedExpense;
+import by.step.aqa.g1822.finalProject.service.methodsForPodMenu.changeExpense.MethodChangeExpense;
+import by.step.aqa.g1822.finalProject.service.methodsForPodMenu.deleteExpense.MethodsDeleteExpense;
+import by.step.aqa.g1822.finalProject.service.methodsForPodMenu.summ.MethodSummForPodMenu;
+import by.step.aqa.g1822.finalProject.service.methodsForPodMenu.watch.MethodsWatchForPodMenu;
 
 import java.util.InputMismatchException;
 
 public class MenuForPodAdmin {
+    private boolean exid = true;
     private ListForPodMenuForAdmin listForPodMenuForAdmin = new ListForPodMenuForAdmin();
     private ScannerForNumberAndWord scanner = new ScannerForNumberAndWord();
     private MenuForAdmin menuForAdmin = new MenuForAdmin();
@@ -47,15 +48,23 @@ public class MenuForPodAdmin {
                     methodChangeExpense.getChangeSpecificExpense();
                     break;
                 case 8:
+                    exid = false;
                     menuForAdmin.getVariousOfDoInMenu();
                     break;
             }
-        }catch (InputMismatchException e){
+        } catch (InputMismatchException e) {
             variousOfDoInPodMenu();
         }
     }
 
-    public void getVariousOfDoInPodMenu(){
+    public void cycleForPodMenu() {
+        MenuForPodAdmin menuForPodAdmin = new MenuForPodAdmin();
+        do {
+            menuForPodAdmin.variousOfDoInPodMenu();
+        } while (menuForPodAdmin.exid);
+    }
+
+    public void getVariousOfDoInPodMenu() {
         variousOfDoInPodMenu();
     }
 }

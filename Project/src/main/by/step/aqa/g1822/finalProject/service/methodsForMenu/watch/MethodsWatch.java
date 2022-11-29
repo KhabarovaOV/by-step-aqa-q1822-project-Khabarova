@@ -6,11 +6,11 @@ import by.step.aqa.g1822.finalProject.service.ScannerForNumberAndWord;
 import java.util.List;
 
 public class MethodsWatch {
-    CreatedCollection createdCollection = new CreatedCollection();
-    List<String> readBase = createdCollection.readFile();
     private ScannerForNumberAndWord scanner = new ScannerForNumberAndWord();
 
     private void watchedCategoriesList() {
+        CreatedCollection createdCollection = new CreatedCollection();
+        List<String> readBase = createdCollection.readFile();
         System.out.println("Список категорий: ");
         for (String s : readBase
         ) {
@@ -21,12 +21,16 @@ public class MethodsWatch {
     }
 
     private void watchedAllList() {
+        CreatedCollection createdCollection = new CreatedCollection();
+        List<String> readBase = createdCollection.readFile();
         for (String str : readBase) {
             System.out.println(str);
         }
     }
 
     private void choosingToViewListOfCategories() {
+        CreatedCollection createdCollection = new CreatedCollection();
+        List<String> readBase = createdCollection.readFile();
         System.out.println("Хотите посмотреть список категорий ещё раз?(Да или Нет)");
         String answerYes = "Да";
         String answerNo = "Нет";
@@ -41,15 +45,15 @@ public class MethodsWatch {
         }
     }
 
-    public  void getWatchedCategoriesList(){
+    public void getWatchedCategoriesList() {
         watchedCategoriesList();
     }
 
-    public void getWatchedAllList(){
+    public void getWatchedAllList() {
         watchedAllList();
     }
 
-    public void getChoosingToViewListOfCategories(){
+    public void getChoosingToViewListOfCategories() {
         choosingToViewListOfCategories();
     }
 }

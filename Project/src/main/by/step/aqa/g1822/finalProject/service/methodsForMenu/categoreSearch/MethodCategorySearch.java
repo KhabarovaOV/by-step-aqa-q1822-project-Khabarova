@@ -6,11 +6,11 @@ import by.step.aqa.g1822.finalProject.service.ScannerForNumberAndWord;
 import java.util.List;
 
 public class MethodCategorySearch {
-    CreatedCollection createdCollection = new CreatedCollection();
-    List<String> readBase = createdCollection.readFile();
     private ScannerForNumberAndWord scanner = new ScannerForNumberAndWord();
 
     private List<String> categorySearch() {
+        CreatedCollection createdCollection = new CreatedCollection();
+        List<String> readBase = createdCollection.readFile();
         System.out.println("Введите имя категории, которую хотите найти с большой буквы: ");
         String search = scanner.getWord();
         int y = 0;
@@ -27,7 +27,7 @@ public class MethodCategorySearch {
         return readBase;
     }
 
-    public void getCategorySearch(){
+    public void getCategorySearch() {
         categorySearch();
     }
 }
